@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shruti Sharma - Portfolio</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #7a93aa;
+      --primary-dark: #0a3a61;
+      --accent: #3b82f6;
+      --text-primary: #1e293b;
+      --text-secondary: #475569;
+      --bg-light: #f1f5f9;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-light);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    nav button:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    nav button.active {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    /* Sections */
+    .section {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .subsection-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .date-range {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    /* About Section */
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-item strong {
+      min-width: 100px;
+      color: var(--text-primary);
+    }
+
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Experience */
+    .experience-item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .experience-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .company-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .company-info h3 {
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .company-info p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    ul {
+      list-style-position: inside;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      padding: 1rem;
+      background: var(--bg-light);
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .skill-category.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .skill-category strong {
+      display: block;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .skill-category p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Projects */
+    .project-item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .project-header {
+      margin-bottom: 0.75rem;
+    }
+
+    .project-header h3 {
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .tech-stack {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Achievements */
+    .achievement-item {
+      padding: 1rem;
+      background: var(--bg-light);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 4px solid #10b981;
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .achievement-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .achievement-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .achievement-item strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .company-header {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="opacity: 0;">Shruti Sharma</h1>
+    <nav style="opacity: 0;">
+      <button onclick="showSection('home')" class="active" id="btn-home">Home</button>
+      <button onclick="showSection('experience')" id="btn-experience">Experience</button>
+      <button onclick="showSection('projects')" id="btn-projects">Projects</button>
+      <button onclick="showSection('skills')" id="btn-skills">Skills</button>
+      <button onclick="showSection('achievements')" id="btn-achievements">Achievements</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Home Section -->
+    <section id="home" class="section active">
+      <div class="card">
+        <h2 class="section-title">About</h2>
+        <p class="about-text">
+          I'm a passionate Computer Science student at CMR Institute of Technology with a strong foundation in full-stack web development, problem-solving, and database management. I enjoy transforming ideas into real-world applications through intelligent systems and scalable solutions. What drives me most is the curiosity to explore, experiment, and continuously learn while building meaningful technology.
+        </p>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <strong>Email:</strong>
+            <a href="mailto:shsh23cs@cmrit.ac.in">shsh23cs@cmrit.ac.in</a>
+          </div>
+          <div class="contact-item">
+            <strong>Phone:</strong>
+            <span>+91 93047 71664</span>
+          </div>
+          <div class="contact-item">
+            <strong>Location:</strong>
+            <span>Bengaluru, Karnataka, India</span>
+          </div>
+          <div class="contact-item">
+            <strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/shruti-sharma-830298292/" target="_blank">Shruti Sharma</a>
+          </div>
+          <div class="contact-item">
+            <strong>GitHub:</strong>
+            <a href="https://github.com/ShrutiSharma2005" target="_blank">ShrutiSharma2005</a>
+          </div>
+          <div class="contact-item">
+            <strong>LeetCode:</strong>
+            <a href="https://leetcode.com/u/fJ7eLAqSHB/" target="_blank">Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Education</h2>
+        <div class="experience-item">
+          <div class="company-header">
+            <div class="company-info">
+              <h3>Bachelor of Engineering - Computer Science and Engineering</h3>
+              <p>CMR Institute of Technology, Bangalore</p>
+            </div>
+            <div class="date-range">2023 - 2027</div>
+          </div>
+          <p style="color: var(--text-secondary);">CGPA: 8.7 (Pursuing)</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Positions of Responsibility</h2>
+        <div class="achievement-item">
+          <strong>Event Coordinator, FOSS Cell</strong>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Conducted technical sessions and led open-source contributions for the student community.</p>
+        </div>
+        <div class="achievement-item">
+          <strong>Core Member, EBSB Club and Art ED</strong>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Coordinated the 'Cultura' fest and other college-level events.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="card">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-item">
+          <div class="company-header">
+            <div class="company-info">
+              <h3>Software Developer Intern</h3>
+              <p>Liwing India | Bengaluru, India</p>
+            </div>
+            <div class="date-range">Mar 2025 - Sep 2025</div>
+          </div>
+          <ul>
+            <li>Designed and developed the frontend of "Toy Clinic", an e-commerce platform for selling, renting, repairing, and customizing toys</li>
+            <li>Built responsive React.js interfaces using Tailwind CSS and Vite, improving page load performance and scalability</li>
+            <li>Implemented user management, toy rental, repair service, custom order, and logistics/delivery modules, ensuring seamless user experience</li>
+            <li>Utilized Git/GitHub and PostCSS for version control, code quality, and optimized styling; collaborated with UI/UX and backend teams in an Agile workflow</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Certifications & Workshops</h2>
+        <ul>
+          <li><strong>React JS</strong> - Infosys Springboard</li>
+          <li><strong>Google Cybersecurity</strong> - Coursera</li>
+          <li><strong>Workshop on R Programming</strong> - FOSS Cell, CMRIT</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="card">
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="project-item">
+          <div class="project-header">
+            <h3>Online Banking Application</h3>
+            <span class="tech-stack">Java, MySQL, JDBC, Swing</span>
+          </div>
+          <ul>
+            <li>Created a full-stack banking system with Java (Swing, JDBC) and MySQL backend</li>
+            <li>Supported secure registration, login, balance inquiry, deposit, withdrawal, and transaction history</li>
+            <li>Enhanced proficiency in OOP, database connectivity, and UI/UX design</li>
+          </ul>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <h3>Personal Expense Tracker</h3>
+            <span class="tech-stack">Python, OOP, CSV, Datetime</span>
+          </div>
+          <ul>
+            <li>Built a lightweight expense tracking system with CSV storage using Python</li>
+            <li>Enabled users to categorize, track, and analyze daily/monthly expenses</li>
+            <li>Implemented real-time budget monitoring and expense breakdown by category</li>
+          </ul>
+        </div>
+
+        <div class="project-item">
+          <div class="project-header">
+            <h3>Car Rental System</h3>
+            <span class="tech-stack">HTML, CSS, JavaScript</span>
+          </div>
+          <ul>
+            <li>Developed an interactive car rental platform using DOM Manipulation</li>
+            <li>Designed responsive UI for dynamic car booking with real-time availability checks</li>
+            <li>Automated price calculation and generated booking summaries for users</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="card">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <strong>Programming Languages</strong>
+            <p>Python, Java, C, JavaScript</p>
+          </div>
+          <div class="skill-category">
+            <strong>Frameworks & Libraries</strong>
+            <p>React, Tailwind CSS, NumPy, Pandas, Matplotlib, Seaborn</p>
+          </div>
+          <div class="skill-category">
+            <strong>Web Technologies</strong>
+            <p>HTML, CSS, JavaScript, React.js, Vite</p>
+          </div>
+          <div class="skill-category">
+            <strong>Databases</strong>
+            <p>MySQL, MongoDB</p>
+          </div>
+          <div class="skill-category">
+            <strong>Tools & Software</strong>
+            <p>Git, GitHub, VS Code, PostCSS, MS Office</p>
+          </div>
+          <div class="skill-category">
+            <strong>Core Subjects</strong>
+            <p>Data Structures & Algorithms, Operating Systems, Computer Networks, DBMS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+      <div class="card">
+        <h2 class="section-title">Achievements</h2>
+        
+        <div class="achievement-item">
+          <strong>Finalist - National-Level Social Hackathon</strong>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Recognized for innovative problem-solving and impactful project contribution</p>
+        </div>
+
+        <div class="achievement-item">
+          <strong>1st Place - Student Seminar</strong>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Graphene: A Wonderful Material" - awarded for excellence in sustainability-focused research and communication</p>
+        </div>
+
+        <div class="achievement-item">
+          <strong>2nd Place - Paint Away Competition</strong>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Organized by EBSB Club - celebrated for creative expression and visual storytelling</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Hackathon Participation</h2>
+        <ul>
+          <li>Participated in college-level hackathons focused on competitive programming, aptitude, and data structures & algorithms (DSA)</li>
+          <li>Participated in Adobe Hackathon and Code for Bharat Season 2, contributing to the development of impactful and innovative tech solutions</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>1CR23CS187 - Shruti Sharma</p>
+    <p style="margin-top: 0.5rem; opacity: 0.9;">&copy; 2025 All rights reserved</p>
+  </footer>
+
+  <script>
+    $(document).ready(function() {
+      // Animate header on page load
+      $('header h1').animate({ opacity: 1 }, 800);
+      $('header nav').delay(300).animate({ opacity: 1 }, 800);
+
+      // Animate cards when section becomes active
+      function animateCards() {
+        $('.section.active .card').each(function(index) {
+          $(this).delay(index * 150).animate({
+            opacity: 1
+          }, 600, function() {
+            $(this).addClass('visible');
+          });
+        });
+
+        // Animate skill categories
+        $('.section.active .skill-category').each(function(index) {
+          $(this).delay(index * 100).animate({
+            opacity: 1
+          }, 500, function() {
+            $(this).addClass('visible');
+          });
+        });
+
+        // Animate achievement items
+        $('.section.active .achievement-item').each(function(index) {
+          $(this).delay(index * 150).animate({
+            opacity: 1
+          }, 500, function() {
+            $(this).addClass('visible');
+          });
+        });
+      }
+
+      // Initial animation for home page
+      animateCards();
+
+      // Override showSection to use jQuery animations
+      window.showSection = function(sectionId) {
+        // Fade out current section
+        $('.section.active').fadeOut(300, function() {
+          // Remove active class from all sections
+          $('.section').removeClass('active');
+          
+          // Remove active class from all buttons
+          $('nav button').removeClass('active');
+          
+          // Reset card animations
+          $('.card, .skill-category, .achievement-item').css({
+            opacity: 0
+          }).removeClass('visible');
+          
+          // Show selected section with fade in
+          $('#' + sectionId).addClass('active').hide().fadeIn(400, function() {
+            // Animate cards in new section
+            animateCards();
+          });
+          
+          // Add active class to clicked button with animation
+          $('#btn-' + sectionId).addClass('active').hide().fadeIn(200);
+          
+          // Smooth scroll to top
+          $('html, body').animate({ scrollTop: 0 }, 400);
+        });
+      };
+
+      // Hover effects for navigation buttons
+      $('nav button').hover(
+        function() {
+          if (!$(this).hasClass('active')) {
+            $(this).stop().animate({ 
+              backgroundColor: 'rgba(255, 255, 255, 0.2)' 
+            }, 200);
+          }
+        },
+        function() {
+          if (!$(this).hasClass('active')) {
+            $(this).stop().animate({ 
+              backgroundColor: 'rgba(255, 255, 255, 0.1)' 
+            }, 200);
+          }
+        }
+      );
+
+      // Smooth hover effect for cards
+      $('.card').hover(
+        function() {
+          $(this).stop().animate({
+            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)'
+          }, 300);
+        },
+        function() {
+          $(this).stop().animate({
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)'
+          }, 300);
+        }
+      );
+
+      // Animate contact links
+      $('.contact-item a').hover(
+        function() {
+          $(this).stop().animate({ paddingLeft: '5px' }, 200);
+        },
+        function() {
+          $(this).stop().animate({ paddingLeft: '0' }, 200);
+        }
+      );
+
+      // Pulse animation for achievement items on hover
+      $(document).on('mouseenter', '.achievement-item', function() {
+        $(this).stop().animate({
+          borderLeftWidth: '8px'
+        }, 200);
+      }).on('mouseleave', '.achievement-item', function() {
+        $(this).stop().animate({
+          borderLeftWidth: '4px'
+        }, 200);
+      });
+
+      // Skill category hover effect
+      $(document).on('mouseenter', '.skill-category', function() {
+        $(this).stop().animate({
+          paddingLeft: '1.5rem',
+          borderLeftWidth: '6px'
+        }, 250);
+      }).on('mouseleave', '.skill-category', function() {
+        $(this).stop().animate({
+          paddingLeft: '1rem',
+          borderLeftWidth: '4px'
+        }, 250);
+      });
+    });
+  </script>
+</body>
+</html>
