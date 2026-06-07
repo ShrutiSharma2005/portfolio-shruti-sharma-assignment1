@@ -1,692 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shruti Sharma - Portfolio</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shruti Sharma | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#0a0d12;color:#e6edf3;line-height:1.6;overflow-x:hidden}
 
-    :root {
-      --primary: #7a93aa;
-      --primary-dark: #0a3a61;
-      --accent: #3b82f6;
-      --text-primary: #1e293b;
-      --text-secondary: #475569;
-      --bg-light: #f1f5f9;
-      --card-bg: #ffffff;
-    }
+nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(88,166,255,0.12);display:flex;justify-content:space-between;align-items:center;padding:18px 6%}
+.logo{font-size:20px;font-weight:700;color:#58a6ff;letter-spacing:-0.5px}
+nav ul{display:flex;list-style:none;gap:28px}
+nav ul li a{color:#8b949e;text-decoration:none;font-size:14px;font-weight:500;transition:.2s;letter-spacing:.3px}
+nav ul li a:hover{color:#58a6ff}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      color: var(--text-primary);
-      background: var(--bg-light);
-      line-height: 1.6;
-    }
+section{padding:80px 6%}
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
+.hero{min-height:92vh;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-top:60px}
+.hero-text{max-width:580px}
+.hero-eyebrow{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#58a6ff;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1.5px;background:#58a6ff}
+.hero h1{font-size:clamp(36px,5vw,58px);font-weight:700;color:#e6edf3;line-height:1.1;margin-bottom:12px}
+.hero h1 span{color:#58a6ff}
+.hero h2{font-size:clamp(16px,2vw,22px);color:#8b949e;font-weight:400;margin-bottom:20px}
+.hero p{color:#8b949e;font-size:15px;line-height:1.8;margin-bottom:32px;max-width:480px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:.2s;cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:#58a6ff;color:#0d1117}
+.btn-primary:hover{background:#79b8ff}
+.btn-outline{background:transparent;color:#58a6ff;border:1.5px solid rgba(88,166,255,0.4)}
+.btn-outline:hover{border-color:#58a6ff;background:rgba(88,166,255,0.08)}
 
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.5px;
-    }
+.avatar{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,#1c2333,#0d1117);border:2px solid rgba(88,166,255,0.3);display:flex;align-items:center;justify-content:center;font-size:72px;font-weight:700;color:#58a6ff;letter-spacing:-2px;flex-shrink:0}
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+.sec-label{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#58a6ff;font-weight:600;margin-bottom:10px}
+.sec-title{font-size:clamp(26px,4vw,38px);font-weight:700;color:#e6edf3;margin-bottom:48px;line-height:1.2}
+.sec-title span{color:#58a6ff}
 
-    nav button {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.about-text p{color:#8b949e;font-size:15px;line-height:1.85;margin-bottom:16px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{background:#161b22;border:1px solid rgba(88,166,255,0.12);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:28px;font-weight:700;color:#58a6ff;display:block}
+.stat-label{font-size:12px;color:#8b949e;margin-top:4px}
 
-    nav button:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.skill-card{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:14px;padding:22px;transition:.25s}
+.skill-card:hover{border-color:rgba(88,166,255,0.4);transform:translateY(-4px)}
+.skill-icon{width:40px;height:40px;border-radius:10px;background:rgba(88,166,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px}
+.skill-card h3{font-size:14px;font-weight:600;color:#e6edf3;margin-bottom:8px}
+.skill-card p{font-size:13px;color:#8b949e;line-height:1.6}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{background:rgba(88,166,255,0.1);color:#58a6ff;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;border:1px solid rgba(88,166,255,0.2)}
 
-    nav button.active {
-      background: white;
-      color: var(--primary);
-    }
+.exp-card{background:#161b22;border:1px solid rgba(88,166,255,0.12);border-radius:16px;padding:32px;position:relative;overflow:hidden}
+.exp-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#58a6ff;border-radius:4px 0 0 4px}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.exp-title{font-size:20px;font-weight:700;color:#e6edf3}
+.exp-company{font-size:15px;color:#58a6ff;margin-top:4px}
+.exp-badge{background:rgba(88,166,255,0.12);color:#58a6ff;font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid rgba(88,166,255,0.25);white-space:nowrap}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.exp-list li{display:flex;gap:10px;font-size:14px;color:#8b949e;line-height:1.6}
+.exp-list li::before{content:'▸';color:#58a6ff;flex-shrink:0;margin-top:1px}
 
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.project-card{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:.25s}
+.project-card:hover{border-color:rgba(88,166,255,0.35);transform:translateY(-4px)}
+.project-num{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#58a6ff;font-weight:600}
+.project-card h3{font-size:16px;font-weight:600;color:#e6edf3;line-height:1.4}
+.project-card p{font-size:13px;color:#8b949e;line-height:1.7;flex:1}
+.tech-row{display:flex;flex-wrap:wrap;gap:6px}
+.tech-tag{background:#0d1117;color:#8b949e;font-size:11px;font-weight:500;padding:3px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.07)}
 
-    /* Sections */
-    .section {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.list-card{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:14px;padding:28px}
+.list-card h3{font-size:16px;font-weight:600;color:#e6edf3;margin-bottom:20px}
+.list-items{list-style:none;display:flex;flex-direction:column;gap:14px}
+.list-items li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#8b949e;line-height:1.6}
+.list-icon{width:28px;height:28px;border-radius:6px;background:rgba(88,166,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;color:#58a6ff}
 
-    .section.active {
-      display: block;
-    }
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:700px}
+.contact-item{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;transition:.2s}
+.contact-item:hover{border-color:rgba(88,166,255,0.35)}
+.contact-icon{width:38px;height:38px;border-radius:9px;background:rgba(88,166,255,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#58a6ff}
+.contact-label{font-size:11px;color:#8b949e;font-weight:500;margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
+.contact-val{font-size:13px;color:#e6edf3;font-weight:500}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+footer{text-align:center;padding:28px;background:#161b22;border-top:1px solid rgba(88,166,255,0.08);color:#8b949e;font-size:13px}
+footer span{color:#58a6ff}
 
-    /* Cards */
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      opacity: 0;
-      transform: translateY(30px);
-    }
+.fade{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade.in{opacity:1;transform:none}
 
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 3px solid var(--accent);
-    }
-
-    .subsection-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .date-range {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    /* About Section */
-    .about-text {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-    }
-
-    /* Contact Info */
-    .contact-info {
-      display: grid;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .contact-item strong {
-      min-width: 100px;
-      color: var(--text-primary);
-    }
-
-    .contact-item a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .contact-item a:hover {
-      text-decoration: underline;
-    }
-
-    /* Experience */
-    .experience-item {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .experience-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .company-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .company-info h3 {
-      font-size: 1.25rem;
-      color: var(--text-primary);
-      margin-bottom: 0.25rem;
-    }
-
-    .company-info p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    ul {
-      list-style-position: inside;
-      color: var(--text-secondary);
-      margin-top: 1rem;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-      padding-left: 0.5rem;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .skill-category {
-      padding: 1rem;
-      background: var(--bg-light);
-      border-radius: 8px;
-      border-left: 4px solid var(--accent);
-      opacity: 0;
-      transform: scale(0.9);
-    }
-
-    .skill-category.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .skill-category strong {
-      display: block;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-
-    .skill-category p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    /* Projects */
-    .project-item {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .project-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .project-header {
-      margin-bottom: 0.75rem;
-    }
-
-    .project-header h3 {
-      font-size: 1.25rem;
-      color: var(--text-primary);
-      margin-bottom: 0.25rem;
-    }
-
-    .tech-stack {
-      color: var(--accent);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    /* Achievements */
-    .achievement-item {
-      padding: 1rem;
-      background: var(--bg-light);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      border-left: 4px solid #10b981;
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-
-    .achievement-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .achievement-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .achievement-item strong {
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      nav button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-      }
-
-      .section-title {
-        font-size: 1.5rem;
-      }
-
-      .company-header {
-        flex-direction: column;
-      }
-    }
-  </style>
+@media(max-width:680px){
+  .hero{justify-content:center;text-align:center}
+  .hero p,.btns{margin-left:auto;margin-right:auto}
+  .btns{justify-content:center}
+  .about-grid,.two-col{grid-template-columns:1fr}
+  .exp-header{flex-direction:column}
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1 style="opacity: 0;">Shruti Sharma</h1>
-    <nav style="opacity: 0;">
-      <button onclick="showSection('home')" class="active" id="btn-home">Home</button>
-      <button onclick="showSection('experience')" id="btn-experience">Experience</button>
-      <button onclick="showSection('projects')" id="btn-projects">Projects</button>
-      <button onclick="showSection('skills')" id="btn-skills">Skills</button>
-      <button onclick="showSection('achievements')" id="btn-achievements">Achievements</button>
-    </nav>
-  </header>
 
-  <div class="container">
-    <!-- Home Section -->
-    <section id="home" class="section active">
-      <div class="card">
-        <h2 class="section-title">About</h2>
-        <p class="about-text">
-          I'm a passionate Computer Science student at CMR Institute of Technology with a strong foundation in full-stack web development, problem-solving, and database management. I enjoy transforming ideas into real-world applications through intelligent systems and scalable solutions. What drives me most is the curiosity to explore, experiment, and continuously learn while building meaningful technology.
-        </p>
-        
-        <div class="contact-info">
-          <div class="contact-item">
-            <strong>Email:</strong>
-            <a href="mailto:shsh23cs@cmrit.ac.in">shsh23cs@cmrit.ac.in</a>
-          </div>
-          <div class="contact-item">
-            <strong>Phone:</strong>
-            <span>+91 93047 71664</span>
-          </div>
-          <div class="contact-item">
-            <strong>Location:</strong>
-            <span>Bengaluru, Karnataka, India</span>
-          </div>
-          <div class="contact-item">
-            <strong>LinkedIn:</strong>
-            <a href="https://www.linkedin.com/in/shruti-sharma-830298292/" target="_blank">Shruti Sharma</a>
-          </div>
-          <div class="contact-item">
-            <strong>GitHub:</strong>
-            <a href="https://github.com/ShrutiSharma2005" target="_blank">ShrutiSharma2005</a>
-          </div>
-          <div class="contact-item">
-            <strong>LeetCode:</strong>
-            <a href="https://leetcode.com/u/fJ7eLAqSHB/" target="_blank">Profile</a>
-          </div>
-        </div>
-      </div>
+<nav>
+  <div class="logo">Shruti Sharma</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-      <div class="card">
-        <h2 class="section-title">Education</h2>
-        <div class="experience-item">
-          <div class="company-header">
-            <div class="company-info">
-              <h3>Bachelor of Engineering - Computer Science and Engineering</h3>
-              <p>CMR Institute of Technology, Bangalore</p>
-            </div>
-            <div class="date-range">2023 - 2027</div>
-          </div>
-          <p style="color: var(--text-secondary);">CGPA: 8.7 (Pursuing)</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2 class="section-title">Positions of Responsibility</h2>
-        <div class="achievement-item">
-          <strong>Event Coordinator, FOSS Cell</strong>
-          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Conducted technical sessions and led open-source contributions for the student community.</p>
-        </div>
-        <div class="achievement-item">
-          <strong>Core Member, EBSB Club and Art ED</strong>
-          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Coordinated the 'Cultura' fest and other college-level events.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-      <div class="card">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-item">
-          <div class="company-header">
-            <div class="company-info">
-              <h3>Software Developer Intern</h3>
-              <p>Liwing India | Bengaluru, India</p>
-            </div>
-            <div class="date-range">Mar 2025 - Sep 2025</div>
-          </div>
-          <ul>
-            <li>Designed and developed the frontend of "Toy Clinic", an e-commerce platform for selling, renting, repairing, and customizing toys</li>
-            <li>Built responsive React.js interfaces using Tailwind CSS and Vite, improving page load performance and scalability</li>
-            <li>Implemented user management, toy rental, repair service, custom order, and logistics/delivery modules, ensuring seamless user experience</li>
-            <li>Utilized Git/GitHub and PostCSS for version control, code quality, and optimized styling; collaborated with UI/UX and backend teams in an Agile workflow</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2 class="section-title">Certifications & Workshops</h2>
-        <ul>
-          <li><strong>React JS</strong> - Infosys Springboard</li>
-          <li><strong>Google Cybersecurity</strong> - Coursera</li>
-          <li><strong>Workshop on R Programming</strong> - FOSS Cell, CMRIT</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <div class="card">
-        <h2 class="section-title">Projects</h2>
-        
-        <div class="project-item">
-          <div class="project-header">
-            <h3>Online Banking Application</h3>
-            <span class="tech-stack">Java, MySQL, JDBC, Swing</span>
-          </div>
-          <ul>
-            <li>Created a full-stack banking system with Java (Swing, JDBC) and MySQL backend</li>
-            <li>Supported secure registration, login, balance inquiry, deposit, withdrawal, and transaction history</li>
-            <li>Enhanced proficiency in OOP, database connectivity, and UI/UX design</li>
-          </ul>
-        </div>
-
-        <div class="project-item">
-          <div class="project-header">
-            <h3>Personal Expense Tracker</h3>
-            <span class="tech-stack">Python, OOP, CSV, Datetime</span>
-          </div>
-          <ul>
-            <li>Built a lightweight expense tracking system with CSV storage using Python</li>
-            <li>Enabled users to categorize, track, and analyze daily/monthly expenses</li>
-            <li>Implemented real-time budget monitoring and expense breakdown by category</li>
-          </ul>
-        </div>
-
-        <div class="project-item">
-          <div class="project-header">
-            <h3>Car Rental System</h3>
-            <span class="tech-stack">HTML, CSS, JavaScript</span>
-          </div>
-          <ul>
-            <li>Developed an interactive car rental platform using DOM Manipulation</li>
-            <li>Designed responsive UI for dynamic car booking with real-time availability checks</li>
-            <li>Automated price calculation and generated booking summaries for users</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-      <div class="card">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <strong>Programming Languages</strong>
-            <p>Python, Java, C, JavaScript</p>
-          </div>
-          <div class="skill-category">
-            <strong>Frameworks & Libraries</strong>
-            <p>React, Tailwind CSS, NumPy, Pandas, Matplotlib, Seaborn</p>
-          </div>
-          <div class="skill-category">
-            <strong>Web Technologies</strong>
-            <p>HTML, CSS, JavaScript, React.js, Vite</p>
-          </div>
-          <div class="skill-category">
-            <strong>Databases</strong>
-            <p>MySQL, MongoDB</p>
-          </div>
-          <div class="skill-category">
-            <strong>Tools & Software</strong>
-            <p>Git, GitHub, VS Code, PostCSS, MS Office</p>
-          </div>
-          <div class="skill-category">
-            <strong>Core Subjects</strong>
-            <p>Data Structures & Algorithms, Operating Systems, Computer Networks, DBMS</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="section">
-      <div class="card">
-        <h2 class="section-title">Achievements</h2>
-        
-        <div class="achievement-item">
-          <strong>Finalist - National-Level Social Hackathon</strong>
-          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Recognized for innovative problem-solving and impactful project contribution</p>
-        </div>
-
-        <div class="achievement-item">
-          <strong>1st Place - Student Seminar</strong>
-          <p style="color: var(--text-secondary); margin-top: 0.5rem;">"Graphene: A Wonderful Material" - awarded for excellence in sustainability-focused research and communication</p>
-        </div>
-
-        <div class="achievement-item">
-          <strong>2nd Place - Paint Away Competition</strong>
-          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Organized by EBSB Club - celebrated for creative expression and visual storytelling</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2 class="section-title">Hackathon Participation</h2>
-        <ul>
-          <li>Participated in college-level hackathons focused on competitive programming, aptitude, and data structures & algorithms (DSA)</li>
-          <li>Participated in Adobe Hackathon and Code for Bharat Season 2, contributing to the development of impactful and innovative tech solutions</li>
-        </ul>
-      </div>
-    </section>
+<section class="hero">
+  <div class="hero-text fade">
+    <div class="hero-eyebrow">Computer Science Engineer</div>
+    <h1>Hi, I'm <span>Shruti</span><br>Sharma</h1>
+    <h2>AI Enthusiast & Full Stack Developer</h2>
+    <p>Passionate developer skilled in Python, Java, React.js, Machine Learning, FastAPI, and Database Systems. I build scalable applications and AI-powered solutions that solve real-world problems.</p>
+    <div class="btns">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="Resume.pdf" class="btn btn-outline">Download Resume</a>
+    </div>
   </div>
+  <div class="avatar fade" style="transition-delay:.15s">SS</div>
+</section>
 
-  <footer>
-    <p>1CR23CS187 - Shruti Sharma</p>
-    <p style="margin-top: 0.5rem; opacity: 0.9;">&copy; 2025 All rights reserved</p>
-  </footer>
+<section id="about">
+  <div class="sec-label">Who I am</div>
+  <h2 class="sec-title">About <span>Me</span></h2>
+  <div class="about-grid">
+    <div class="about-text fade">
+      <p>I am currently pursuing a Bachelor of Engineering in Computer Science at CMR Institute of Technology, Bengaluru with a CGPA of 8.77.</p>
+      <p>My interests span Full Stack Development, Artificial Intelligence, Machine Learning, Data Analytics, and Cloud Technologies.</p>
+      <p>I enjoy building innovative software solutions and participating in hackathons, ideathons, and research projects that create a positive impact.</p>
+    </div>
+    <div class="stat-grid fade" style="transition-delay:.1s">
+      <div class="stat-card"><span class="stat-num">8.77</span><div class="stat-label">CGPA</div></div>
+      <div class="stat-card"><span class="stat-num">3+</span><div class="stat-label">Projects Built</div></div>
+      <div class="stat-card"><span class="stat-num">3</span><div class="stat-label">Certifications</div></div>
+      <div class="stat-card"><span class="stat-num">6mo</span><div class="stat-label">Internship</div></div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    $(document).ready(function() {
-      // Animate header on page load
-      $('header h1').animate({ opacity: 1 }, 800);
-      $('header nav').delay(300).animate({ opacity: 1 }, 800);
+<section id="skills">
+  <div class="sec-label">What I know</div>
+  <h2 class="sec-title">Technical <span>Skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card fade">
+      <div class="skill-icon">💻</div>
+      <h3>Programming</h3>
+      <p>Core languages for backend logic, scripting, and systems work.</p>
+      <div class="tag-row"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">SQL</span></div>
+    </div>
+    <div class="skill-card fade" style="transition-delay:.05s">
+      <div class="skill-icon">🌐</div>
+      <h3>Web Development</h3>
+      <p>Building modern, responsive frontends and lightweight APIs.</p>
+      <div class="tag-row"><span class="tag">React.js</span><span class="tag">FastAPI</span><span class="tag">Tailwind</span><span class="tag">Vite</span></div>
+    </div>
+    <div class="skill-card fade" style="transition-delay:.1s">
+      <div class="skill-icon">📊</div>
+      <h3>Data Analytics</h3>
+      <p>Transforming raw data into visual, actionable insights.</p>
+      <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
+    </div>
+    <div class="skill-card fade" style="transition-delay:.15s">
+      <div class="skill-icon">🤖</div>
+      <h3>Machine Learning</h3>
+      <p>Designing and training models for real-world AI solutions.</p>
+      <div class="tag-row"><span class="tag">TensorFlow</span><span class="tag">Scikit-learn</span><span class="tag">LangChain</span></div>
+    </div>
+    <div class="skill-card fade" style="transition-delay:.2s">
+      <div class="skill-icon">🗄️</div>
+      <h3>Databases</h3>
+      <p>Managing relational and document-based data stores.</p>
+      <div class="tag-row"><span class="tag">MySQL</span><span class="tag">MongoDB</span></div>
+    </div>
+    <div class="skill-card fade" style="transition-delay:.25s">
+      <div class="skill-icon">🔧</div>
+      <h3>Tools & DevOps</h3>
+      <p>Version control, IDE, and OS-level development workflows.</p>
+      <div class="tag-row"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Linux</span><span class="tag">VS Code</span></div>
+    </div>
+  </div>
+</section>
 
-      // Animate cards when section becomes active
-      function animateCards() {
-        $('.section.active .card').each(function(index) {
-          $(this).delay(index * 150).animate({
-            opacity: 1
-          }, 600, function() {
-            $(this).addClass('visible');
-          });
-        });
+<section id="experience">
+  <div class="sec-label">Where I've worked</div>
+  <h2 class="sec-title">Internship <span>Experience</span></h2>
+  <div class="exp-card fade">
+    <div class="exp-header">
+      <div>
+        <div class="exp-title">Software Developer Intern</div>
+        <div class="exp-company">Intinkverse Pvt. Ltd.</div>
+      </div>
+      <span class="exp-badge">Mar 2025 – Sep 2025</span>
+    </div>
+    <ul class="exp-list">
+      <li>Built and deployed the Toy-Clinic frontend using React.js, Tailwind CSS, and Vite.</li>
+      <li>Developed features for user management, rentals, repairs, and logistics.</li>
+      <li>Optimized UI performance and collaborated effectively using Git and GitHub.</li>
+    </ul>
+  </div>
+</section>
 
-        // Animate skill categories
-        $('.section.active .skill-category').each(function(index) {
-          $(this).delay(index * 100).animate({
-            opacity: 1
-          }, 500, function() {
-            $(this).addClass('visible');
-          });
-        });
+<section id="projects">
+  <div class="sec-label">What I've built</div>
+  <h2 class="sec-title">Featured <span>Projects</span></h2>
+  <div class="projects-grid">
+    <div class="project-card fade">
+      <div class="project-num">01 — AI / Healthcare</div>
+      <h3>AI-Driven Oral Cancer Tumor Evolution Predictor</h3>
+      <p>CNN-based ML model to predict tumor progression using clinical data and risk classification with high diagnostic accuracy.</p>
+      <div class="tech-row"><span class="tech-tag">Python</span><span class="tech-tag">CNN</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">FastAPI</span></div>
+    </div>
+    <div class="project-card fade" style="transition-delay:.08s">
+      <div class="project-num">02 — Full Stack</div>
+      <h3>Stationery Hub Pro</h3>
+      <p>Full-stack stationery management system with inventory tracking, sales management, and a reporting dashboard.</p>
+      <div class="tech-row"><span class="tech-tag">React Native</span><span class="tech-tag">MongoDB</span></div>
+    </div>
+    <div class="project-card fade" style="transition-delay:.16s">
+      <div class="project-num">03 — Backend</div>
+      <h3>Online Banking Application</h3>
+      <p>Secure banking system featuring account management, fund transfers, and JDBC database integration.</p>
+      <div class="tech-row"><span class="tech-tag">Java</span><span class="tech-tag">JDBC</span><span class="tech-tag">MySQL</span></div>
+    </div>
+  </div>
+</section>
 
-        // Animate achievement items
-        $('.section.active .achievement-item').each(function(index) {
-          $(this).delay(index * 150).animate({
-            opacity: 1
-          }, 500, function() {
-            $(this).addClass('visible');
-          });
-        });
-      }
+<section>
+  <div class="sec-label">Recognition & Learning</div>
+  <h2 class="sec-title">Achievements & <span>Certifications</span></h2>
+  <div class="two-col">
+    <div class="list-card fade">
+      <h3>Achievements</h3>
+      <ul class="list-items">
+        <li><div class="list-icon">🏆</div>Winner of GCEM 3.0 for AI-driven Healthcare Solution</li>
+        <li><div class="list-icon">🥈</div>Secured 5th Position at IEEE ACSS 2025 Ideathon</li>
+        <li><div class="list-icon">📄</div>Presented Research: Digital Twin Health Agent at IC-AISIS 2026</li>
+      </ul>
+    </div>
+    <div class="list-card fade" style="transition-delay:.1s">
+      <h3>Certifications</h3>
+      <ul class="list-items">
+        <li><div class="list-icon">☁️</div>Oracle Cloud Infrastructure 2025 AI Foundations Associate</li>
+        <li><div class="list-icon">🔐</div>Google Cybersecurity – Coursera</li>
+        <li><div class="list-icon">⚛️</div>React JS – Infosys Springboard</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      // Initial animation for home page
-      animateCards();
+<section id="contact">
+  <div class="sec-label">Get in touch</div>
+  <h2 class="sec-title">Contact <span>Me</span></h2>
+  <div class="contact-grid">
+    <div class="contact-item fade">
+      <div class="contact-icon">✉️</div>
+      <div><div class="contact-label">Email</div><div class="contact-val">shrutisharma.sindri<br>@gmail.com</div></div>
+    </div>
+    <div class="contact-item fade" style="transition-delay:.06s">
+      <div class="contact-icon">📱</div>
+      <div><div class="contact-label">Phone</div><div class="contact-val">+91 9304771664</div></div>
+    </div>
+    <div class="contact-item fade" style="transition-delay:.12s">
+      <div class="contact-icon">📍</div>
+      <div><div class="contact-label">Location</div><div class="contact-val">Bengaluru, Karnataka</div></div>
+    </div>
+    <div class="contact-item fade" style="transition-delay:.18s">
+      <div class="contact-icon">💼</div>
+      <div><div class="contact-label">LinkedIn</div><div class="contact-val">Add your URL</div></div>
+    </div>
+    <div class="contact-item fade" style="transition-delay:.24s">
+      <div class="contact-icon">🐙</div>
+      <div><div class="contact-label">GitHub</div><div class="contact-val">Add your URL</div></div>
+    </div>
+  </div>
+</section>
 
-      // Override showSection to use jQuery animations
-      window.showSection = function(sectionId) {
-        // Fade out current section
-        $('.section.active').fadeOut(300, function() {
-          // Remove active class from all sections
-          $('.section').removeClass('active');
-          
-          // Remove active class from all buttons
-          $('nav button').removeClass('active');
-          
-          // Reset card animations
-          $('.card, .skill-category, .achievement-item').css({
-            opacity: 0
-          }).removeClass('visible');
-          
-          // Show selected section with fade in
-          $('#' + sectionId).addClass('active').hide().fadeIn(400, function() {
-            // Animate cards in new section
-            animateCards();
-          });
-          
-          // Add active class to clicked button with animation
-          $('#btn-' + sectionId).addClass('active').hide().fadeIn(200);
-          
-          // Smooth scroll to top
-          $('html, body').animate({ scrollTop: 0 }, 400);
-        });
-      };
+<footer><p>© 2026 <span>Shruti Sharma</span> — Portfolio. Built with passion.</p></footer>
 
-      // Hover effects for navigation buttons
-      $('nav button').hover(
-        function() {
-          if (!$(this).hasClass('active')) {
-            $(this).stop().animate({ 
-              backgroundColor: 'rgba(255, 255, 255, 0.2)' 
-            }, 200);
-          }
-        },
-        function() {
-          if (!$(this).hasClass('active')) {
-            $(this).stop().animate({ 
-              backgroundColor: 'rgba(255, 255, 255, 0.1)' 
-            }, 200);
-          }
-        }
-      );
-
-      // Smooth hover effect for cards
-      $('.card').hover(
-        function() {
-          $(this).stop().animate({
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)'
-          }, 300);
-        },
-        function() {
-          $(this).stop().animate({
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)'
-          }, 300);
-        }
-      );
-
-      // Animate contact links
-      $('.contact-item a').hover(
-        function() {
-          $(this).stop().animate({ paddingLeft: '5px' }, 200);
-        },
-        function() {
-          $(this).stop().animate({ paddingLeft: '0' }, 200);
-        }
-      );
-
-      // Pulse animation for achievement items on hover
-      $(document).on('mouseenter', '.achievement-item', function() {
-        $(this).stop().animate({
-          borderLeftWidth: '8px'
-        }, 200);
-      }).on('mouseleave', '.achievement-item', function() {
-        $(this).stop().animate({
-          borderLeftWidth: '4px'
-        }, 200);
-      });
-
-      // Skill category hover effect
-      $(document).on('mouseenter', '.skill-category', function() {
-        $(this).stop().animate({
-          paddingLeft: '1.5rem',
-          borderLeftWidth: '6px'
-        }, 250);
-      }).on('mouseleave', '.skill-category', function() {
-        $(this).stop().animate({
-          paddingLeft: '1rem',
-          borderLeftWidth: '4px'
-        }, 250);
-      });
-    });
-  </script>
+<script>
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
