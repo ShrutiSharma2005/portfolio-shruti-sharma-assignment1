@@ -1,297 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Shruti Sharma | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shruti Sharma · AI &amp; Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-html{scroll-behavior:smooth}
-body{background:#0a0d12;color:#e6edf3;line-height:1.6;overflow-x:hidden}
-
-nav{position:sticky;top:0;z-index:100;background:rgba(13,17,23,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(88,166,255,0.12);display:flex;justify-content:space-between;align-items:center;padding:18px 6%}
-.logo{font-size:20px;font-weight:700;color:#58a6ff;letter-spacing:-0.5px}
-nav ul{display:flex;list-style:none;gap:28px}
-nav ul li a{color:#8b949e;text-decoration:none;font-size:14px;font-weight:500;transition:.2s;letter-spacing:.3px}
-nav ul li a:hover{color:#58a6ff}
-
-section{padding:80px 6%}
-
-.hero{min-height:92vh;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-top:60px}
-.hero-text{max-width:580px}
-.hero-eyebrow{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:#58a6ff;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1.5px;background:#58a6ff}
-.hero h1{font-size:clamp(36px,5vw,58px);font-weight:700;color:#e6edf3;line-height:1.1;margin-bottom:12px}
-.hero h1 span{color:#58a6ff}
-.hero h2{font-size:clamp(16px,2vw,22px);color:#8b949e;font-weight:400;margin-bottom:20px}
-.hero p{color:#8b949e;font-size:15px;line-height:1.8;margin-bottom:32px;max-width:480px}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;text-decoration:none;transition:.2s;cursor:pointer;border:none;font-family:inherit}
-.btn-primary{background:#58a6ff;color:#0d1117}
-.btn-primary:hover{background:#79b8ff}
-.btn-outline{background:transparent;color:#58a6ff;border:1.5px solid rgba(88,166,255,0.4)}
-.btn-outline:hover{border-color:#58a6ff;background:rgba(88,166,255,0.08)}
-
-.avatar{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,#1c2333,#0d1117);border:2px solid rgba(88,166,255,0.3);display:flex;align-items:center;justify-content:center;font-size:72px;font-weight:700;color:#58a6ff;letter-spacing:-2px;flex-shrink:0}
-
-.sec-label{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#58a6ff;font-weight:600;margin-bottom:10px}
-.sec-title{font-size:clamp(26px,4vw,38px);font-weight:700;color:#e6edf3;margin-bottom:48px;line-height:1.2}
-.sec-title span{color:#58a6ff}
-
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-.about-text p{color:#8b949e;font-size:15px;line-height:1.85;margin-bottom:16px}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.stat-card{background:#161b22;border:1px solid rgba(88,166,255,0.12);border-radius:12px;padding:20px;text-align:center}
-.stat-num{font-size:28px;font-weight:700;color:#58a6ff;display:block}
-.stat-label{font-size:12px;color:#8b949e;margin-top:4px}
-
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.skill-card{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:14px;padding:22px;transition:.25s}
-.skill-card:hover{border-color:rgba(88,166,255,0.4);transform:translateY(-4px)}
-.skill-icon{width:40px;height:40px;border-radius:10px;background:rgba(88,166,255,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:20px}
-.skill-card h3{font-size:14px;font-weight:600;color:#e6edf3;margin-bottom:8px}
-.skill-card p{font-size:13px;color:#8b949e;line-height:1.6}
-.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.tag{background:rgba(88,166,255,0.1);color:#58a6ff;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;border:1px solid rgba(88,166,255,0.2)}
-
-.exp-card{background:#161b22;border:1px solid rgba(88,166,255,0.12);border-radius:16px;padding:32px;position:relative;overflow:hidden}
-.exp-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:#58a6ff;border-radius:4px 0 0 4px}
-.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px}
-.exp-title{font-size:20px;font-weight:700;color:#e6edf3}
-.exp-company{font-size:15px;color:#58a6ff;margin-top:4px}
-.exp-badge{background:rgba(88,166,255,0.12);color:#58a6ff;font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;border:1px solid rgba(88,166,255,0.25);white-space:nowrap}
-.exp-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.exp-list li{display:flex;gap:10px;font-size:14px;color:#8b949e;line-height:1.6}
-.exp-list li::before{content:'▸';color:#58a6ff;flex-shrink:0;margin-top:1px}
-
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.project-card{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:.25s}
-.project-card:hover{border-color:rgba(88,166,255,0.35);transform:translateY(-4px)}
-.project-num{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#58a6ff;font-weight:600}
-.project-card h3{font-size:16px;font-weight:600;color:#e6edf3;line-height:1.4}
-.project-card p{font-size:13px;color:#8b949e;line-height:1.7;flex:1}
-.tech-row{display:flex;flex-wrap:wrap;gap:6px}
-.tech-tag{background:#0d1117;color:#8b949e;font-size:11px;font-weight:500;padding:3px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.07)}
-
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.list-card{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:14px;padding:28px}
-.list-card h3{font-size:16px;font-weight:600;color:#e6edf3;margin-bottom:20px}
-.list-items{list-style:none;display:flex;flex-direction:column;gap:14px}
-.list-items li{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#8b949e;line-height:1.6}
-.list-icon{width:28px;height:28px;border-radius:6px;background:rgba(88,166,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;color:#58a6ff}
-
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:700px}
-.contact-item{background:#161b22;border:1px solid rgba(88,166,255,0.1);border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;transition:.2s}
-.contact-item:hover{border-color:rgba(88,166,255,0.35)}
-.contact-icon{width:38px;height:38px;border-radius:9px;background:rgba(88,166,255,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#58a6ff}
-.contact-label{font-size:11px;color:#8b949e;font-weight:500;margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
-.contact-val{font-size:13px;color:#e6edf3;font-weight:500}
-
-footer{text-align:center;padding:28px;background:#161b22;border-top:1px solid rgba(88,166,255,0.08);color:#8b949e;font-size:13px}
-footer span{color:#58a6ff}
-
-.fade{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
-.fade.in{opacity:1;transform:none}
-
-@media(max-width:680px){
-  .hero{justify-content:center;text-align:center}
-  .hero p,.btns{margin-left:auto;margin-right:auto}
-  .btns{justify-content:center}
-  .about-grid,.two-col{grid-template-columns:1fr}
-  .exp-header{flex-direction:column}
-}
+:root{--bg:#0c0a1d;--bg2:#141132;--ink:#ece9ff;--mute:#a29fc4;--line:#2a2650;--v:#9b8cff;--c:#5eead4;--r:#ff9ab5;
+--grad:linear-gradient(110deg,var(--v),var(--c) 55%,var(--r));color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px;height:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Hanken Grotesk",system-ui,sans-serif;min-height:100%}
+h1,h2,h3{font-family:"Bricolage Grotesque","Hanken Grotesk",sans-serif;line-height:1.05;margin:0;letter-spacing:-.025em}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--c);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(12,10,29,.72);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font:800 20px "Bricolage Grotesque",sans-serif;text-decoration:none}
+.logo i{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px;color:var(--mute)}
+nav ul a{text-decoration:none}nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font-size:16px;font-family:inherit}
+.btn.pri{background:var(--grad);color:#0c0a1d;border:0}
+.btn:hover{transform:translateY(-1px)}
+/* hero */
+.hero{position:relative;min-height:calc(100vh - 62px);display:flex;align-items:center;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;pointer-events:none;padding-top:40px;padding-bottom:60px}
+.hero .wrap>*{pointer-events:auto}
+.hero h1{font-size:clamp(46px,8.4vw,112px);font-weight:800;max-width:11ch}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:52ch;color:var(--mute);font-size:19px;margin:26px 0 32px}
+.hero p b{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.live{display:inline-flex;gap:10px;align-items:center;font-size:14px;color:var(--mute);margin-bottom:22px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(20,17,50,.7)}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c)}
+#tip{position:absolute;z-index:2;pointer-events:none;font-size:13px;padding:4px 10px;border-radius:8px;background:var(--bg2);border:1px solid var(--line);opacity:0;transition:opacity .15s}
+/* sections */
+section{padding:110px 0 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:46px}
+.head h2{font-size:clamp(34px,5vw,60px);font-weight:800}
+.head p{color:var(--mute);margin:0;max-width:46ch}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:56px}
+.about p{margin:0 0 18px;color:#cfcbee}
+.facts{border-top:1px solid var(--line)}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.facts span{color:var(--mute)}.facts b{font-weight:500;text-align:right}
+/* ask */
+.ask{margin-top:44px;border:1px solid var(--line);border-radius:22px;padding:26px;background:linear-gradient(160deg,var(--bg2),#100d28)}
+.ask h3{font-size:24px;margin-bottom:6px}
+.ask>p{margin:0 0 16px;color:var(--mute);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chips button{font:500 14px "Hanken Grotesk",sans-serif;color:var(--ink);background:transparent;border:1px solid var(--line);padding:7px 14px;border-radius:999px;cursor:pointer}
+.chips button:hover{border-color:var(--v)}
+.ask form{display:flex;gap:10px}
+.ask input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--ink);font:inherit;font-size:16px}
+#ans{margin-top:18px;min-height:54px;padding:16px 18px;border-radius:14px;background:rgba(155,140,255,.1);border:1px solid rgba(155,140,255,.28);font-size:16px}
+/* projects */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.filters button{font:500 15px "Hanken Grotesk",sans-serif;color:var(--mute);background:transparent;border:1px solid var(--line);padding:8px 18px;border-radius:999px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{border:1px solid var(--line);border-radius:20px;padding:28px;background:var(--bg2);display:flex;flex-direction:column;gap:14px}
+.card.big{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:34px;background:linear-gradient(135deg,#1a1545,#0f1f2e)}
+.card h3{font-size:26px}
+.card p{margin:0;color:#c2bee6;font-size:16px}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tags span{font-size:13px;padding:3px 11px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--mute)}
+.card details{border-top:1px solid var(--line);padding-top:12px;font-size:15px;color:#c2bee6}
+.card summary{cursor:pointer;font-weight:600;color:var(--c);list-style:none}
+.card summary::-webkit-details-marker{display:none}
+.card summary::after{content:" +"}
+.card details[open] summary::after{content:" −"}
+.card ul{margin:10px 0 0;padding-left:18px}.card li{margin:4px 0}
+.card .links{margin-top:auto;display:flex;gap:18px;font-weight:600;font-size:15px}
+.card .links a{color:var(--ink);text-underline-offset:4px;text-decoration-color:var(--v)}
+.card[hidden]{display:none}
+.viz{border:1px solid var(--line);border-radius:16px;padding:20px;background:rgba(12,10,29,.6);align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.viz .row{display:flex;justify-content:space-between;font-size:14px;color:var(--mute)}
+.viz .row b{color:var(--ink);font-weight:600}
+.bar{height:8px;border-radius:8px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;background:var(--grad);border-radius:8px}
+/* journey */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.box{border:1px solid var(--line);border-radius:20px;padding:28px;background:var(--bg2)}
+.box small{color:var(--c);font-weight:600;font-size:14px}
+.box h3{font-size:24px;margin:8px 0 4px}
+.box em{font-style:normal;color:var(--mute);font-size:15px}
+.box p{margin:14px 0 0;color:#c2bee6;font-size:16px}
+.wins{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.wins .box h3{font-size:20px}
+.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stack h3{font-size:18px;margin-bottom:14px;color:var(--v)}
+.stack div{display:flex;flex-wrap:wrap;gap:7px}
+.stack span{font-size:14px;padding:5px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg2)}
+.end{text-align:center;padding:120px 0 70px}
+.end h2{font-size:clamp(40px,7vw,88px);font-weight:800;max-width:14ch;margin:0 auto 26px}
+.end p{color:var(--mute);max-width:46ch;margin:0 auto 30px}
+.soc{display:flex;gap:22px;justify-content:center;margin-top:34px;flex-wrap:wrap;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mute);font-size:14px;text-align:center}
+@media(max-width:860px){
+nav ul{display:none}.head,.about,.two,.card.big,.grid,.wins{grid-template-columns:1fr}.stack{grid-template-columns:1fr 1fr}.head{gap:14px}section{padding-top:80px}}
+@media(max-width:520px){.stack{grid-template-columns:1fr}.ask form{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
 </style>
 </head>
 <body>
+<nav><div class="wrap"><a class="logo" href="#top">shruti<i>.ai</i></a>
+<ul><li><a href="#about">About</a></li><li><a href="#work">Projects</a></li><li><a href="#journey">Journey</a></li><li><a href="#stack">Toolkit</a></li></ul>
+<a class="btn" href="#contact">Say hello</a></div></nav>
 
-<nav>
-  <div class="logo">Shruti Sharma</div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<header class="hero" id="top">
+<canvas id="net" aria-hidden="true"></canvas><div id="tip"></div>
+<div class="wrap">
+<div class="live">Open to internships and research collaborations</div>
+<h1>I teach machines to <span class="grad">care about people.</span></h1>
+<p>I’m <b>Shruti Sharma</b>, a computer science student at CMR Institute of Technology in Bengaluru. I build AI tools for healthcare and business, from cancer-risk prediction to customer-churn dashboards, and I ship the full stack around them.</p>
+<div class="cta"><a class="btn pri" href="#work">See my projects</a><a class="btn" href="https://github.com/ShrutiSharma2005" target="_blank" rel="noopener">GitHub profile</a></div>
+</div></header>
 
-<section class="hero">
-  <div class="hero-text fade">
-    <div class="hero-eyebrow">Computer Science Engineer</div>
-    <h1>Hi, I'm <span>Shruti</span><br>Sharma</h1>
-    <h2>AI Enthusiast & Full Stack Developer</h2>
-    <p>Passionate developer skilled in Python, Java, React.js, Machine Learning, FastAPI, and Database Systems. I build scalable applications and AI-powered solutions that solve real-world problems.</p>
-    <div class="btns">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="Resume.pdf" class="btn btn-outline">Download Resume</a>
-    </div>
-  </div>
-  <div class="avatar fade" style="transition-delay:.15s">SS</div>
+<main class="wrap">
+<section id="about"><div class="head"><h2>Curious by nature. Builder by choice.</h2><p>Move your cursor over the network above: every glowing node is something I work with.</p></div>
+<div class="about"><div>
+<p>I’m pursuing a B.E. in Computer Science and Engineering at CMR Institute of Technology, Bengaluru. My work runs from clinical deep-learning models to React front ends and FastAPI back ends, and I like owning the whole path from idea to a screen someone can use.</p>
+<p>Outside the editor I help run student communities as an event manager at FOSS Cell and a core member of EBSB Club and Art ED, where I coordinated the Cultura fest. I also paint.</p></div>
+<div class="facts"><div><span>Studying</span><b>B.E. Computer Science &amp; Engineering</b></div><div><span>College</span><b>CMR Institute of Technology</b></div><div><span>CGPA</span><b>8.83</b></div><div><span>Graduating</span><b>2027</b></div><div><span>Focus</span><b>Applied AI · HealthTech · Full-stack</b></div><div><span>Languages</span><b>English, Hindi</b></div></div></div>
+
+<div class="ask"><h3>Ask my AI twin</h3><p>A small assistant that answers from my resume and GitHub. Pick a question or type your own.</p>
+<div class="chips" id="chips"></div>
+<form id="f"><input id="q" aria-label="Ask a question about Shruti" placeholder="e.g. What AI projects has she built?"><button class="btn pri" type="submit">Ask</button></form>
+<div id="ans" aria-live="polite">Hi, I’m Shruti’s portfolio assistant. What would you like to know?</div></div>
 </section>
 
-<section id="about">
-  <div class="sec-label">Who I am</div>
-  <h2 class="sec-title">About <span>Me</span></h2>
-  <div class="about-grid">
-    <div class="about-text fade">
-      <p>I am currently pursuing a Bachelor of Engineering in Computer Science at CMR Institute of Technology, Bengaluru with a CGPA of 8.77.</p>
-      <p>My interests span Full Stack Development, Artificial Intelligence, Machine Learning, Data Analytics, and Cloud Technologies.</p>
-      <p>I enjoy building innovative software solutions and participating in hackathons, ideathons, and research projects that create a positive impact.</p>
-    </div>
-    <div class="stat-grid fade" style="transition-delay:.1s">
-      <div class="stat-card"><span class="stat-num">8.77</span><div class="stat-label">CGPA</div></div>
-      <div class="stat-card"><span class="stat-num">3+</span><div class="stat-label">Projects Built</div></div>
-      <div class="stat-card"><span class="stat-num">3</span><div class="stat-label">Certifications</div></div>
-      <div class="stat-card"><span class="stat-num">6mo</span><div class="stat-label">Internship</div></div>
-    </div>
-  </div>
+<section id="work"><div class="head"><h2>Built to make a difference.</h2><p>Eight projects pulled from my GitHub, from AI models to classic systems. Open any card for the details.</p></div>
+<div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+<div class="grid" id="grid">
+
+<article class="card big" data-t="ai health"><div style="display:flex;flex-direction:column;gap:14px">
+<h3>Oral Tumor Evolution Predictor</h3>
+<p>A CNN-based model that predicts how oral tumors progress from clinical data, classifies tumor stage and flags patient risk so doctors can act earlier. A FastAPI backend serves predictions to a clinical-facing interface.</p>
+<div class="tags"><span>Python</span><span>CNN</span><span>Deep Learning</span><span>FastAPI</span><span>Scikit-learn</span></div>
+<details><summary>What’s inside</summary><ul><li>Tumor-stage classification and patient risk levels</li><li>Predictive analytics aimed at early diagnosis and treatment planning</li><li>Prediction API built for integration with a React front end</li><li>NumPy, Pandas and Matplotlib for data prep and analysis</li></ul></details>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/oral-tumor-predictor" target="_blank" rel="noopener">View on GitHub</a></div></div>
+<div class="viz" aria-label="Pipeline summary"><div class="row"><span>Clinical data</span><b>Input</b></div><div class="bar"><i style="width:100%"></i></div><div class="row"><span>CNN stage classifier</span><b>Model</b></div><div class="bar"><i style="width:80%"></i></div><div class="row"><span>Risk level</span><b>Output</b></div><div class="bar"><i style="width:62%"></i></div><div class="row"><span>FastAPI endpoint</span><b>Serve</b></div><div class="bar"><i style="width:90%"></i></div></div></article>
+
+<article class="card big" data-t="ai"><div style="display:flex;flex-direction:column;gap:14px">
+<h3>NeuralCRM: Churn Intelligence</h3>
+<p>An AI-powered CRM that studies customer behavior, scores churn risk with generative AI and shows engagement and retention trends on a real-time dashboard.</p>
+<div class="tags"><span>Python</span><span>FastAPI</span><span>MongoDB</span><span>Generative AI</span></div>
+<details><summary>What’s inside</summary><ul><li>MongoDB data layer designed for customer activity</li><li>FastAPI service that returns churn scores in real time</li><li>Dashboard that turns raw behavior into retention insight</li></ul></details>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/NeuralCRM-AI-Powered_Sales_Acceleration_-_Churn_Intelligence_Platform" target="_blank" rel="noopener">View on GitHub</a></div></div>
+<div class="viz" aria-label="Dashboard illustration"><div class="row"><span>Churn risk, sample accounts</span><b>Live</b></div>
+<svg viewBox="0 0 300 110" width="100%" role="img" aria-label="Rising line chart"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#9b8cff"/><stop offset="1" stop-color="#5eead4"/></linearGradient></defs><path d="M0 90 C30 80 45 95 75 70 S120 60 150 55 200 30 230 38 280 12 300 8" fill="none" stroke="url(#lg)" stroke-width="3"/><path d="M0 90 C30 80 45 95 75 70 S120 60 150 55 200 30 230 38 280 12 300 8 V110 H0Z" fill="url(#lg)" opacity=".14"/></svg></div></article>
+
+<article class="card" data-t="ai health"><h3>Symptom Swap</h3>
+<p>A collaborative platform where people with rare or undiagnosed conditions can exchange symptoms and find others with similar experiences, built to shorten the long diagnostic journey.</p>
+<div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>HealthTech</span></div>
+<details><summary>Why it matters</summary><ul><li>Rare-disease patients often wait years for a diagnosis</li><li>Pooling symptom patterns makes shared signals easier to spot</li></ul></details>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/Sympthomswap1" target="_blank" rel="noopener">View on GitHub</a></div></article>
+
+<article class="card" data-t="web"><h3>Stationery Hub Pro</h3>
+<p>A mobile and web app for stationery shops. Customers order easily while owners manage stock, tax, profit and loss, with separate admin and user workflows and live reports.</p>
+<div class="tags"><span>React Native</span><span>JavaScript</span><span>MongoDB</span><span>Full-stack</span></div>
+<details><summary>What’s inside</summary><ul><li>Product catalog and ordering for customers</li><li>Inventory, tax and profit tracking for the owner</li><li>Real-time reporting to support day-to-day decisions</li></ul></details>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/A-Smart-Stationery-Shop-Management-Sales-Tracking-App1" target="_blank" rel="noopener">View on GitHub</a></div></article>
+
+<article class="card" data-t="systems"><h3>Online Banking Application</h3>
+<p>A simplified online banking platform in Java where users check balances, transfer money and run everyday account operations, backed by MySQL.</p>
+<div class="tags"><span>Java</span><span>OOP</span><span>MySQL</span></div>
+<details><summary>What’s inside</summary><ul><li>Account management and transactions</li><li>Security and validation logic around money movement</li></ul></details>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/JAVA-OnlineBankingApplication" target="_blank" rel="noopener">View on GitHub</a></div></article>
+
+<article class="card" data-t="systems"><h3>Library Management System</h3>
+<p>A desktop app for managing staff, publishers and book issue and return, with login authentication and a modular design.</p>
+<div class="tags"><span>Python</span><span>Tkinter</span><span>SQLite</span></div>
+<details><summary>What’s inside</summary><ul><li>Full create, read, update and delete flows</li><li>Staff login and transaction history</li></ul></details>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/Library-Management-System-using-Python-Tkinter-SQLite-" target="_blank" rel="noopener">View on GitHub</a></div></article>
+
+<article class="card" data-t="systems"><h3>Expense Tracker</h3>
+<p>A command-line tool to record, categorize and analyze daily spending, storing data in CSV and summarizing it by category and period.</p>
+<div class="tags"><span>Python</span><span>CSV</span><span>OOP</span></div>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/Expense-Tracker" target="_blank" rel="noopener">View on GitHub</a></div></article>
+
+<article class="card" data-t="web"><h3>Virtual Lab: Merge Sort</h3>
+<p>An in-browser virtual lab for exploring how merge sort works, aimed at making algorithm learning visual.</p>
+<div class="tags"><span>HTML</span><span>JavaScript</span><span>Algorithms</span></div>
+<div class="links"><a href="https://github.com/ShrutiSharma2005/virtual-lab-merge-sort-" target="_blank" rel="noopener">View on GitHub</a></div></article>
+
+</div>
+<p style="margin-top:24px;color:var(--mute)">There are 39 repositories in total. <a href="https://github.com/ShrutiSharma2005?tab=repositories" target="_blank" rel="noopener">Browse them all on GitHub.</a></p>
 </section>
 
-<section id="skills">
-  <div class="sec-label">What I know</div>
-  <h2 class="sec-title">Technical <span>Skills</span></h2>
-  <div class="skills-grid">
-    <div class="skill-card fade">
-      <div class="skill-icon">💻</div>
-      <h3>Programming</h3>
-      <p>Core languages for backend logic, scripting, and systems work.</p>
-      <div class="tag-row"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">SQL</span></div>
-    </div>
-    <div class="skill-card fade" style="transition-delay:.05s">
-      <div class="skill-icon">🌐</div>
-      <h3>Web Development</h3>
-      <p>Building modern, responsive frontends and lightweight APIs.</p>
-      <div class="tag-row"><span class="tag">React.js</span><span class="tag">FastAPI</span><span class="tag">Tailwind</span><span class="tag">Vite</span></div>
-    </div>
-    <div class="skill-card fade" style="transition-delay:.1s">
-      <div class="skill-icon">📊</div>
-      <h3>Data Analytics</h3>
-      <p>Transforming raw data into visual, actionable insights.</p>
-      <div class="tag-row"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
-    </div>
-    <div class="skill-card fade" style="transition-delay:.15s">
-      <div class="skill-icon">🤖</div>
-      <h3>Machine Learning</h3>
-      <p>Designing and training models for real-world AI solutions.</p>
-      <div class="tag-row"><span class="tag">TensorFlow</span><span class="tag">Scikit-learn</span><span class="tag">LangChain</span></div>
-    </div>
-    <div class="skill-card fade" style="transition-delay:.2s">
-      <div class="skill-icon">🗄️</div>
-      <h3>Databases</h3>
-      <p>Managing relational and document-based data stores.</p>
-      <div class="tag-row"><span class="tag">MySQL</span><span class="tag">MongoDB</span></div>
-    </div>
-    <div class="skill-card fade" style="transition-delay:.25s">
-      <div class="skill-icon">🔧</div>
-      <h3>Tools & DevOps</h3>
-      <p>Version control, IDE, and OS-level development workflows.</p>
-      <div class="tag-row"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Linux</span><span class="tag">VS Code</span></div>
-    </div>
-  </div>
-</section>
+<section id="journey"><div class="head"><h2>Learning by doing the work.</h2><p>Production code, research and a few podiums along the way.</p></div>
+<div class="two"><div class="box"><small>March to September 2025</small><h3>Software Developer Intern</h3><em>Liwing India</em><p>Built and shipped the Toy-Clinic front end in React, Tailwind CSS and Vite, covering user management, rentals, repairs and logistics. Used lazy loading and memoization to speed up key pages, and worked in an agile team with Git, code reviews and versioned releases.</p></div>
+<div class="box"><small>2023 to 2027</small><h3>B.E. Computer Science</h3><em>CMR Institute of Technology · CGPA 8.83</em><p>Data structures, software engineering and intelligent systems, with a Python, Java and React toolkit I apply in projects. Completed a 5-day Agentic AI workshop on LLM agents, tool use and autonomous workflows.</p></div></div>
+<div class="wins">
+<div class="box"><small>Podium</small><h3>3rd place, GCEM 3.0</h3><p>For an AI-driven healthcare solution.</p></div>
+<div class="box"><small>Ideathon</small><h3>5th place, IEEE ACSS 2025</h3><p>For an LLM-based rockfall prediction idea.</p></div>
+<div class="box"><small>Research, 2026</small><h3>Digital Twin Health Agent</h3><p>Co-authored paper in the GRENZE International Journal of Engineering and Technology, Volume 12, Issue 2.</p></div>
+<div class="box"><small>Hackathons</small><h3>Code for Bharat 2025</h3><p>Built solutions for real-world challenges.</p></div>
+<div class="box"><small>Hackathons</small><h3>ET AI Hackathon 2026</h3><p>Explored practical applications of AI.</p></div>
+<div class="box"><small>Community</small><h3>FOSS Cell · EBSB · Art ED</h3><p>Event manager and core member who coordinated the Cultura fest.</p></div></div></section>
 
-<section id="experience">
-  <div class="sec-label">Where I've worked</div>
-  <h2 class="sec-title">Internship <span>Experience</span></h2>
-  <div class="exp-card fade">
-    <div class="exp-header">
-      <div>
-        <div class="exp-title">Software Developer Intern</div>
-        <div class="exp-company">Intinkverse Pvt. Ltd.</div>
-      </div>
-      <span class="exp-badge">Mar 2025 – Sep 2025</span>
-    </div>
-    <ul class="exp-list">
-      <li>Built and deployed the Toy-Clinic frontend using React.js, Tailwind CSS, and Vite.</li>
-      <li>Developed features for user management, rentals, repairs, and logistics.</li>
-      <li>Optimized UI performance and collaborated effectively using Git and GitHub.</li>
-    </ul>
-  </div>
-</section>
+<section id="stack"><div class="head"><h2>Tools for the task.</h2><p>Always growing, always picked for the problem in front of me.</p></div>
+<div class="stack">
+<div><h3>Languages</h3><div><span>Python</span><span>Java</span><span>C</span><span>JavaScript</span><span>HTML</span><span>CSS</span></div></div>
+<div><h3>Web and backend</h3><div><span>React</span><span>React Native</span><span>Tailwind CSS</span><span>Node.js</span><span>FastAPI</span><span>Vite</span></div></div>
+<div><h3>Data and AI</h3><div><span>TensorFlow</span><span>Scikit-learn</span><span>LangChain</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span></div></div>
+<div><h3>Data, cloud, delivery</h3><div><span>MongoDB</span><span>MySQL</span><span>AWS</span><span>Docker</span><span>Jenkins</span><span>Git</span><span>Power BI</span></div></div></div></section>
 
-<section id="projects">
-  <div class="sec-label">What I've built</div>
-  <h2 class="sec-title">Featured <span>Projects</span></h2>
-  <div class="projects-grid">
-    <div class="project-card fade">
-      <div class="project-num">01 — AI / Healthcare</div>
-      <h3>AI-Driven Oral Cancer Tumor Evolution Predictor</h3>
-      <p>CNN-based ML model to predict tumor progression using clinical data and risk classification with high diagnostic accuracy.</p>
-      <div class="tech-row"><span class="tech-tag">Python</span><span class="tech-tag">CNN</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">FastAPI</span></div>
-    </div>
-    <div class="project-card fade" style="transition-delay:.08s">
-      <div class="project-num">02 — Full Stack</div>
-      <h3>Stationery Hub Pro</h3>
-      <p>Full-stack stationery management system with inventory tracking, sales management, and a reporting dashboard.</p>
-      <div class="tech-row"><span class="tech-tag">React Native</span><span class="tech-tag">MongoDB</span></div>
-    </div>
-    <div class="project-card fade" style="transition-delay:.16s">
-      <div class="project-num">03 — Backend</div>
-      <h3>Online Banking Application</h3>
-      <p>Secure banking system featuring account management, fund transfers, and JDBC database integration.</p>
-      <div class="tech-row"><span class="tech-tag">Java</span><span class="tech-tag">JDBC</span><span class="tech-tag">MySQL</span></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="sec-label">Recognition & Learning</div>
-  <h2 class="sec-title">Achievements & <span>Certifications</span></h2>
-  <div class="two-col">
-    <div class="list-card fade">
-      <h3>Achievements</h3>
-      <ul class="list-items">
-        <li><div class="list-icon">🏆</div>Winner of GCEM 3.0 for AI-driven Healthcare Solution</li>
-        <li><div class="list-icon">🥈</div>Secured 5th Position at IEEE ACSS 2025 Ideathon</li>
-        <li><div class="list-icon">📄</div>Presented Research: Digital Twin Health Agent at IC-AISIS 2026</li>
-      </ul>
-    </div>
-    <div class="list-card fade" style="transition-delay:.1s">
-      <h3>Certifications</h3>
-      <ul class="list-items">
-        <li><div class="list-icon">☁️</div>Oracle Cloud Infrastructure 2025 AI Foundations Associate</li>
-        <li><div class="list-icon">🔐</div>Google Cybersecurity – Coursera</li>
-        <li><div class="list-icon">⚛️</div>React JS – Infosys Springboard</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="sec-label">Get in touch</div>
-  <h2 class="sec-title">Contact <span>Me</span></h2>
-  <div class="contact-grid">
-    <div class="contact-item fade">
-      <div class="contact-icon">✉️</div>
-      <div><div class="contact-label">Email</div><div class="contact-val">shrutisharma.sindri<br>@gmail.com</div></div>
-    </div>
-    <div class="contact-item fade" style="transition-delay:.06s">
-      <div class="contact-icon">📱</div>
-      <div><div class="contact-label">Phone</div><div class="contact-val">+91 9304771664</div></div>
-    </div>
-    <div class="contact-item fade" style="transition-delay:.12s">
-      <div class="contact-icon">📍</div>
-      <div><div class="contact-label">Location</div><div class="contact-val">Bengaluru, Karnataka</div></div>
-    </div>
-    <div class="contact-item fade" style="transition-delay:.18s">
-      <div class="contact-icon">💼</div>
-      <div><div class="contact-label">LinkedIn</div><div class="contact-val">Add your URL</div></div>
-    </div>
-    <div class="contact-item fade" style="transition-delay:.24s">
-      <div class="contact-icon">🐙</div>
-      <div><div class="contact-label">GitHub</div><div class="contact-val">Add your URL</div></div>
-    </div>
-  </div>
-</section>
-
-<footer><p>© 2026 <span>Shruti Sharma</span> — Portfolio. Built with passion.</p></footer>
+<section class="end" id="contact"><h2>Have a problem worth solving? <span class="grad">Let’s build.</span></h2>
+<p>I’m looking for internships and research projects in applied AI and software. Email is the fastest way to reach me.</p>
+<a class="btn pri" href="mailto:shrutisharma.sindri@gmail.com">Email Shruti</a>
+<div class="soc"><a href="https://github.com/ShrutiSharma2005" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/shruti-sharma-830298292/" target="_blank" rel="noopener">LinkedIn</a><a href="https://leetcode.com/u/ShrutiSharma2005/" target="_blank" rel="noopener">LeetCode</a></div></section>
+</main>
+<footer>© 2026 Shruti Sharma · Bengaluru, India</footer>
 
 <script>
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}});
-},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+(function(){
+/* ---------- neural network hero ---------- */
+var cv=document.getElementById('net'),cx=cv.getContext('2d'),tip=document.getElementById('tip');
+var skills=['Python','CNN','FastAPI','React','MongoDB','TensorFlow','LangChain','Java','Docker','AWS','Pandas','Node.js','Scikit-learn','Generative AI','Tailwind','Git'];
+var N=[],W,H,mx=-999,my=-999,dpr=Math.min(devicePixelRatio||1,2);
+var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function size(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+var n=W<600?34:70;N=[];for(var i=0;i<n;i++){N.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,s:i<skills.length?skills[i]:null,p:Math.random()*6})}}
+function draw(t){cx.clearRect(0,0,W,H);var hover=null,D=W<600?100:140;
+for(var i=0;i<N.length;i++){var a=N[i];
+if(!still){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
+var dx=a.x-mx,dy=a.y-my,d=Math.hypot(dx,dy);if(d<130){a.x-=dx*.012;a.y-=dy*.012}}
+for(var j=i+1;j<N.length;j++){var b=N[j],e=Math.hypot(a.x-b.x,a.y-b.y);
+if(e<D){var o=1-e/D,near=Math.hypot((a.x+b.x)/2-mx,(a.y+b.y)/2-my)<150;
+cx.strokeStyle=near?'rgba(94,234,212,'+(o*.8)+')':'rgba(155,140,255,'+(o*.28)+')';cx.lineWidth=near?1.4:1;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}}
+for(i=0;i<N.length;i++){a=N[i];var near2=Math.hypot(a.x-mx,a.y-my)<120,pulse=still?0:Math.sin(t/700+a.p)*.5+.5;
+cx.fillStyle=a.s?(near2?'#5eead4':'#9b8cff'):'rgba(236,233,255,.5)';
+cx.beginPath();cx.arc(a.x,a.y,(a.s?4:2)+(near2&&a.s?3:0)+(a.s?pulse:0),0,7);cx.fill();
+if(a.s&&near2){cx.fillStyle='#ece9ff';cx.font='500 13px Hanken Grotesk,sans-serif';cx.fillText(a.s,a.x+10,a.y-8)}}
+if(!still)requestAnimationFrame(draw)}
+document.getElementById('top').addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;if(still)draw(0)});
+document.getElementById('top').addEventListener('pointerleave',function(){mx=my=-999});
+addEventListener('resize',function(){size();if(still)draw(0)});size();requestAnimationFrame(draw);
+
+/* ---------- project filters ---------- */
+var F=[['all','All'],['ai','AI and ML'],['health','HealthTech'],['web','Web and mobile'],['systems','Core systems']],fb=document.getElementById('filters');
+F.forEach(function(f,i){var b=document.createElement('button');b.textContent=f[1];b.setAttribute('aria-pressed',i==0);
+b.onclick=function(){[].forEach.call(fb.children,function(x){x.setAttribute('aria-pressed',x===b)});
+[].forEach.call(document.querySelectorAll('#grid .card'),function(c){c.hidden=!(f[0]=='all'||c.dataset.t.split(' ').indexOf(f[0])>-1)})};fb.appendChild(b)});
+
+/* ---------- ask my AI twin (answers from resume + GitHub, runs in your browser) ---------- */
+var KB=[
+[['ai','ml','machine','deep','model','cnn'],'Her AI work: a CNN-based Oral Tumor Evolution Predictor that classifies tumor stage and patient risk, NeuralCRM for churn scoring with generative AI, Symptom Swap for rare-disease symptom sharing, and the research paper “Digital Twin Health Agent”. She also completed a 5-day Agentic AI workshop.'],
+[['health','medical','cancer','doctor'],'Healthcare is her main focus: the oral cancer predictor, Symptom Swap, the Digital Twin Health Agent paper, and a 3rd place finish at GCEM 3.0 for an AI healthcare solution.'],
+[['project','built','build','github','repo'],'Highlights: Oral Tumor Predictor, NeuralCRM, Symptom Swap, Stationery Hub Pro, Online Banking (Java), Library Management (Tkinter), Expense Tracker and Virtual Lab Merge Sort. Scroll to Projects for the details and GitHub links.'],
+[['intern','experience','work','job','liwing'],'She was a Software Developer Intern at Liwing India from March to September 2025, building the Toy-Clinic front end in React, Tailwind CSS and Vite, with lazy loading and memoization for speed.'],
+[['skill','tech','stack','language','tool','know'],'Python, Java, C, JavaScript, React, React Native, FastAPI, Node.js, TensorFlow, Scikit-learn, LangChain, MongoDB, MySQL, AWS, Docker, Jenkins and Git.'],
+[['award','win','hackathon','achiev','publish','paper','research'],'3rd place at GCEM 3.0, 5th at IEEE ACSS 2025 Ideathon, participation in Code for Bharat 2025 and ET AI Hackathon 2026, and a co-authored paper in the GRENZE International Journal of Engineering and Technology (2026).'],
+[['education','college','cgpa','study','degree','cmr'],'B.E. in Computer Science and Engineering at CMR Institute of Technology, Bengaluru, graduating 2027, with a CGPA of 8.83.'],
+[['contact','email','hire','reach','linkedin','available','open'],'She is open to internships and research collaborations. Email shrutisharma.sindri@gmail.com or message her on LinkedIn (links at the bottom of the page).']];
+var chips=['What AI projects has she built?','What is her experience?','Which skills does she use?','How can I contact her?'],ch=document.getElementById('chips'),ans=document.getElementById('ans'),q=document.getElementById('q'),timer;
+function say(t){clearInterval(timer);ans.textContent='';var i=0;if(still){ans.textContent=t;return}timer=setInterval(function(){ans.textContent=t.slice(0,i+=3);if(i>=t.length)clearInterval(timer)},12)}
+function ask(s){var l=s.toLowerCase(),best=null,sc=0;KB.forEach(function(k){var n=0;k[0].forEach(function(w){if(l.indexOf(w)>-1)n++});if(n>sc){sc=n;best=k}});
+say(best?best[1]:'I can only answer from Shruti’s resume and GitHub. Try asking about her projects, skills, internship, awards or how to contact her.')}
+chips.forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c;b.onclick=function(){q.value=c;ask(c)};ch.appendChild(b)});
+document.getElementById('f').onsubmit=function(e){e.preventDefault();if(q.value.trim())ask(q.value)};
+})();
 </script>
 </body>
 </html>
